@@ -1,11 +1,11 @@
 import { ADD_PRODUCT, ADD_QUANTITY, REMOVE_QUANTITY } from './actionTypes';
-import { initailState } from './initailState';
+import { initialState } from './initialState';
 
 const nextId = (products) => {
     return products.reduce((id, product) => Math.max(id, product.id), -1) + 1;
 };
 
-const productReducer = (state = initailState, action) => {
+const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_PRODUCT:
             return [
