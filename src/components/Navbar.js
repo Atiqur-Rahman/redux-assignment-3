@@ -1,11 +1,12 @@
 import React from 'react';
+import logo from '../images/logo.png';
 
 const Navbar = () => {
     return (
         <nav class="bg-[#171C2A] py-4">
             <div class="navBar">
                 <a href="index.html">
-                    <img src="./images/logo.png" alt="LWS" class="max-w-[140px]" />
+                    <img src={logo} alt="LWS" class="max-w-[140px]" />
                 </a>
 
                 <div class="flex gap-4">
