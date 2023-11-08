@@ -1,22 +1,35 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/carts/actions';
+import { removeQuantity } from '../redux/products/actions';
 
-const ProductItem = () => {
+const ProductItem = ({ product }) => {
+    const dispatch = useDispatch();
+    const { id, name, category, imgUrl, price, quantity } = product;
+
+    const handleAddToCart = () => {
+        console.log(product);
+        dispatch(addToCart(product));
+        dispatch(removeQuantity(id));
+    };
     return (
         <div>
-            <div class="lws-productCard">
-                <img class="lws-productImage" src="https://i.dummyjson.com/data/products/59/thumbnail.jpg" alt="product" />
-                <div class="p-4 space-y-2">
-                    <h4 class="lws-productName">Spring and summershoes</h4>
-                    <p class="lws-productCategory">Mens shoes</p>
-                    <div class="flex items-center justify-between pb-2">
-                        <p class="productPrice">
-                            BDT <span class="lws-price">400</span>
+            <div className="lws-productCard">
+                <img className="lws-productImage" src={imgUrl} alt="product" />
+                <div className="p-4 space-y-2">
+                    <h4 className="lws-productName">{name}</h4>
+                    <p className="lws-productCategory">{category}</p>
+                    <div className="flex items-center justify-between pb-2">
+                        <p className="productPrice">
+                            BDT <span className="lws-price">{price}</span>
                         </p>
-                        <p class="productQuantity">
-                            QTY <span class="lws-quantity">10</span>
+                        <p className="productQuantity">
+                            QTY <span className="lws-quantity">{quantity}</span>
                         </p>
                     </div>
-                    <button class="lws-btnAddToCart">Add To Cart</button>
+                    <button className="lws-btnAddToCart" onClick={handleAddToCart}>
+                        Add To Cart
+                    </button>
                 </div>
             </div>
         </div>

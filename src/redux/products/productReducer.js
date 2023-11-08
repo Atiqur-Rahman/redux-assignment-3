@@ -1,5 +1,5 @@
 import { ADD_PRODUCT, ADD_QUANTITY, REMOVE_QUANTITY } from './actionTypes';
-import { initialState } from './initialState';
+import initialState from './initialState';
 
 const nextId = (products) => {
     return products.reduce((id, product) => Math.max(id, product.id), -1) + 1;
@@ -20,7 +20,7 @@ const productReducer = (state = initialState, action) => {
 
         case ADD_QUANTITY:
             return state.map((product) => {
-                if (product.id === action.paylaod.productId) {
+                if (product.id === action.payload.productId) {
                     return {
                         ...product,
                         quantity: product.quantity + action.payload.quantity,

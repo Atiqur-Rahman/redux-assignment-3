@@ -10,7 +10,7 @@ export const addProduct = (product) => {
 export const addQuantity = (productId, quantity) => {
     return {
         type: ADD_QUANTITY,
-        paylaod: {
+        payload: {
             productId,
             quantity,
         },

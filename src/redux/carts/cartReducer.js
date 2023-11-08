@@ -1,8 +1,8 @@
-import { ADD_TO_CART, DECREASE_QUANTITY, INCREASE_QUANTITY, REMOVE_FROM_CART } from './actionTypes';
+import { ADD_TO_CART, REMOVE_FROM_CART, INCREASE_QUANTITY, DECREASE_QUANTITY } from './actionTypes';
 import { initialState } from './initialState';
 
 const findProductInCart = (state, action) => {
-    return state.find((p) => (p.productId = action.payload.id));
+    return state.find((p) => p.productId === action.payload.id);
 };
 
 const nextId = (state) => {
@@ -35,7 +35,6 @@ const cartReducer = (state = initialState, action) => {
                     },
                 ];
             }
-
         case REMOVE_FROM_CART:
             return state.filter((p) => p.id !== action.payload);
 

@@ -1,14 +1,19 @@
 import React from 'react';
 import ProductItem from './ProductItem';
 import AddProduct from './AddProduct';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
+    const products = useSelector((state) => state.products);
+
     return (
         <div>
-            <main class="py-16">
-                <div class="productWrapper">
-                    <div class="productContainer" id="lws-productContainer">
-                        <ProductItem />
+            <main className="py-16">
+                <div className="productWrapper">
+                    <div className="productContainer" id="lws-productContainer">
+                        {products.map((product) => (
+                            <ProductItem key={product.id} product={product} />
+                        ))}
                     </div>
                     <div>
                         <AddProduct />
